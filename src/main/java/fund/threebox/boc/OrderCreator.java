@@ -37,10 +37,8 @@ public class OrderCreator {
                 webSocketClient.onAggTradeEvent(symbol, new BinanceApiCallback<AggTradeEvent>() {
                     public void onResponse(final AggTradeEvent response) {
                         System.out.println(response);
-                        if (response.isBuyerMaker()) {
-                            NewOrderResponse newOrderResponse = restClient.newOrder(NewOrder.marketSell(symbol.toUpperCase(), balance));
-                            System.out.println(newOrderResponse);
-                        }
+                        NewOrderResponse newOrderResponse = restClient.newOrder(NewOrder.marketSell(symbol.toUpperCase(), balance));
+                        System.out.println("****** Order created ====> " + newOrderResponse);
                     }
                     public void onFailure(final Throwable cause) {
                         System.err.println("Web socket failed");
