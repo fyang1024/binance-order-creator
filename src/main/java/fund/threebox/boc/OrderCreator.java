@@ -38,7 +38,6 @@ public class OrderCreator {
                 BinanceApiWebSocketClient webSocketClient = factory.newWebSocketClient();
                 webSocketClient.onAggTradeEvent(symbol, new BinanceApiCallback<AggTradeEvent>() {
                     public void onResponse(final AggTradeEvent response) {
-                        System.out.println(response);
                         String balanceString = account.getAssetBalance(asset).getFree();
                         BigDecimal balance = new BigDecimal(balanceString);
                         if (balance.compareTo(BigDecimal.ZERO) > 0) {
@@ -53,12 +52,12 @@ public class OrderCreator {
                 });
                 webSocketClient.onDepthEvent(symbol, new BinanceApiCallback<DepthEvent>() {
                     public void onResponse(DepthEvent depthEvent) {
-                        System.out.println(depthEvent);
+                        // System.out.println(depthEvent);
                     }
                 });
                 webSocketClient.onUserDataUpdateEvent(symbol, new BinanceApiCallback<UserDataUpdateEvent>() {
                     public void onResponse(UserDataUpdateEvent userDataUpdateEvent) {
-                        System.out.println(userDataUpdateEvent);
+                        // System.out.println(userDataUpdateEvent);
                     }
                 });
             }
