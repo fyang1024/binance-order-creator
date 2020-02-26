@@ -31,8 +31,8 @@ public class OrderCreator {
             final String balance = account.getAssetBalance(asset).getFree();
             System.out.println(asset + ": " + balance);
             if ("0".equals(balance)) {
-                Thread.sleep(1000);
-                System.out.println("Slept 1 sec");
+                Thread.sleep(1680);
+                System.out.println("Slept 1.68 seconds");
             } else {
                 shouldTryAgain = false;
                 BinanceApiWebSocketClient webSocketClient = factory.newWebSocketClient();
